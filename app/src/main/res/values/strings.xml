@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">S185105 Galgeleg 2.0</string>
     <string name="home_screen">Galgeleg</string>
+    <string name="imageViewStart">StartView</string>
+    <string name="imageViewMain">MainView</string>
+
+    <!-- Main Activity -->
+    <string name="gameButton">SPIL</string>
+    <string name="highscoreButton">HIGHSCORE</string>
+    <string name="helpButton">HJÆLP</string>
+
+    <!-- Game Activity -->
+    <string name="contentDescription">GameView</string>
+    <string name="guessWord">Gæt Ord&#8230;</string>
+    <string name="guessButton">GÆT</string>
+    <string name="game_title">Spil</string>
 </resources>

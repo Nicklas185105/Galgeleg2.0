@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/colorWhite">
+    tools:context=".GameActivity"
+    android:background="#FFFFFF">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -20,66 +20,72 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/galge"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/forkert6"
         android:layout_marginStart="100dp"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="400dp"
         android:layout_marginEnd="100dp"
-        android:contentDescription="@string/imageViewMain"
+        android:background="@drawable/galge"
+        android:contentDescription="@string/contentDescription"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/ord"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/galge" />
+
+    <TextView
+        android:id="@+id/ordGættet"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ord" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="@string/guessWord"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ordGættet" />
 
     <Button
-        android:id="@+id/game"
+        android:id="@+id/GuessButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="100dp"
         android:background="@drawable/bg_main_button"
         android:elevation="2dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginEnd="100dp"
-        android:text="@string/gameButton"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
+        android:text="@string/guessButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView"
-        app:layout_constraintBottom_toTopOf="@id/highscore"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <Button
-        android:id="@+id/highscore"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_main_button"
-        android:elevation="2dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginEnd="100dp"
-        android:text="@string/highscoreButton"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/game"
-        app:layout_constraintBottom_toTopOf="@id/help"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <Button
-        android:id="@+id/help"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_main_button"
-        android:elevation="2dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginEnd="100dp"
-        android:text="@string/helpButton"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/highscore"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
