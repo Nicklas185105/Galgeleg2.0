@@ -14,4 +14,10 @@
     <string name="guessWord">Gæt Ord&#8230;</string>
     <string name="guessButton">GÆT</string>
     <string name="game_title">Spil</string>
+
+    <!-- Highscore Activity -->
+    <string name="highscore_title">Highscore</string>
+
+    <!-- Help Activity -->
+    <string name="help_title">Hjælp</string>
 </resources>

@@ -25,6 +25,8 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".HelpActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".WonActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

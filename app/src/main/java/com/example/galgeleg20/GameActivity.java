@@ -1,5 +1,6 @@
 package com.example.galgeleg20;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -95,10 +96,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         updatePicture();
 
         if (logik.erSpilletVundet()){
-            info.setText("Du har vundet");
+            Intent i = new Intent(this, WonActivity.class);
+            startActivity(i);
         }
         if (logik.erSpilletTabt()){
-            info.setText("Du har tabt, ordet var: " + logik.getOrdet());
+            Intent i = new Intent(this, WonActivity.class);
+            startActivity(i);
         }
     }
 
