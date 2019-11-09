@@ -27,6 +27,8 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".WonActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".LostActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

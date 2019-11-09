@@ -24,12 +24,16 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     Button guess;
     EditText et;
 
+    int antalForsøg;
+
     List<Integer> image = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        antalForsøg = 0;
 
         logik.nulstil();
         try {
@@ -97,12 +101,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         if (logik.erSpilletVundet()){
             Intent i = new Intent(this, WonActivity.class);
+            i.putExtra("tries", antalForsøg);
             startActivity(i);
         }
         if (logik.erSpilletTabt()){
-            Intent i = new Intent(this, WonActivity.class);
+            Intent i = new Intent(this, LostActivity.class);
+            i.putExtra("word", logik.getOrdet());
             startActivity(i);
         }
+        antalForsøg++;
     }
 
     private void updatePicture(){
