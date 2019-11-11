@@ -36,7 +36,11 @@ public class LostActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == button){
-            Intent i = new Intent(this, MainActivity.class);
+            Intent i = new Intent(this, HighscoreActivity.class);
+            i.putExtra("activity", true);
+            i.putExtra("result", "tabte");
+            i.putExtra("score",getIntent().getExtras().getInt("tries"));
+            i.putExtra("word", getIntent().getExtras().getString("word"));
             startActivity(i);
         }
     }

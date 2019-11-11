@@ -1,6 +1,7 @@
 package com.example.galgeleg20;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,11 +37,19 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         antalForsøg = 0;
 
         logik.nulstil();
-        try {
-            logik.hentOrdFraRegneark("12");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        new AsyncTask(){
+
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                try {
+                    logik.hentOrdFraRegneark("12");
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+        }.execute();
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -102,10 +111,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         if (logik.erSpilletVundet()){
             Intent i = new Intent(this, WonActivity.class);
             i.putExtra("tries", antalForsøg);
+            i.putExtra("word", logik.getOrdet());
             startActivity(i);
         }
         if (logik.erSpilletTabt()){
             Intent i = new Intent(this, LostActivity.class);
+            i.putExtra("tries", antalForsøg);
             i.putExtra("word", logik.getOrdet());
             startActivity(i);
         }

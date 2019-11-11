@@ -17,6 +17,7 @@
 
     <!-- Highscore Activity -->
     <string name="highscore_title">Highscore</string>
+    <string name="highscore_text">Scores</string>
     <string name="listview">1.    Antal Forsøg: </string>
 
     <!-- Help Activity -->

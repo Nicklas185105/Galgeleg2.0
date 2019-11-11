@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         }
         else if (v == highscore){
             Intent i = new Intent(this, HighscoreActivity.class);
+            i.putExtra("activity", false);
             startActivity(i);
         }
         else if (v == help){
