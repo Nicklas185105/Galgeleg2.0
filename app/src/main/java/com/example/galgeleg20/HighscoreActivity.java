@@ -3,9 +3,10 @@ package com.example.galgeleg20;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,14 +17,16 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class HighscoreActivity extends AppCompatActivity {
+public class HighscoreActivity extends AppCompatActivity implements View.OnClickListener {
 
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
     Toolbar toolbar;
     ListView listView;
+    Button button;
     ArrayList<String> stringArrayList;
     ArrayAdapter<String> stringArrayAdapter;
+    Set<String> set;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,7 @@ public class HighscoreActivity extends AppCompatActivity {
 
         editor = prefs.edit();
 
-        Set<String> set = new HashSet<>();
+        set = new HashSet<>();
 
         Set<String> fetch = prefs.getStringSet("highscore", null);
         List<String> list;
@@ -57,6 +60,9 @@ public class HighscoreActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         listView = findViewById(R.id.listView);
+
+        button = findViewById(R.id.button);
+        button.setOnClickListener(this);
 
         stringArrayList = new ArrayList<>();
 
@@ -89,5 +95,13 @@ public class HighscoreActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        stringArrayList.clear();
+        stringArrayAdapter.notifyDataSetChanged();
+        set.clear();
+        editor.putStringSet("highscore",set).apply();
     }
 }
