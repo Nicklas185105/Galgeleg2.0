@@ -35,14 +35,13 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         help.setOnClickListener(this);
 
         //((Galgelogik) this.getApplication());
+        //TODO: tilføj asynctask her i main, da jeg har ændret galgelogik til at være global, så alle scripts kan se den
     }
 
     @Override
     public void onClick(View v) {
         if (v == game){
             Intent i = new Intent(this, GameActivity.class);
-            //i.putExtra()
-            //TODO: Tilføj asynctask her i main og send det over til GameActivity
             startActivity(i);
         }
         else if (v == highscore){
