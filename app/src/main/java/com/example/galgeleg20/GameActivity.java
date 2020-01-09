@@ -3,6 +3,7 @@ package com.example.galgeleg20;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +19,8 @@ import java.util.List;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Galgelogik logik = new Galgelogik();
+    //Galgelogik logik = new Galgelogik();
+    Galgelogik logik;
     Toolbar toolbar;
     ImageView iv;
     TextView info,guessed;
@@ -35,9 +37,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_game);
 
         antalForsøg = 0;
-
+        logik = ((Galgelogik) this.getApplication());
         logik.nulstil();
-        new AsyncTask(){
+        /*new AsyncTask(){
 
             @Override
             protected Object doInBackground(Object[] objects) {
@@ -49,7 +51,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     return false;
                 }
             }
-        }.execute();
+        }.execute();*/
+
+        System.out.println(logik.muligeOrd.size());
+        Log.e("Antal mulige ord","" + logik.muligeOrd.size());
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

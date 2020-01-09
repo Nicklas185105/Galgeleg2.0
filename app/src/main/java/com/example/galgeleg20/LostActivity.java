@@ -1,6 +1,7 @@
 package com.example.galgeleg20;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,8 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class LostActivity extends AppCompatActivity implements View.OnClickListener{
 
     TextView tv;
-    ImageView imageView;
     Button button;
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,14 +22,11 @@ public class LostActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_lost);
 
         tv = findViewById(R.id.tv);
-        imageView = findViewById(R.id.iv);
         button =  findViewById(R.id.button);
 
         tv.setText("Ordet var: " + getIntent().getExtras().getString("word"));
-
-        imageView.getLayoutParams().width = 500;
-        imageView.getLayoutParams().height = 313;
-        imageView.setAdjustViewBounds(true);
+        mp = MediaPlayer.create(this, R.raw.lost_sound);
+        mp.start();
 
         button.setOnClickListener(this);
     }
@@ -42,6 +40,7 @@ public class LostActivity extends AppCompatActivity implements View.OnClickListe
             i.putExtra("score",getIntent().getExtras().getInt("tries"));
             i.putExtra("word", getIntent().getExtras().getString("word"));
             startActivity(i);
+            mp.stop();
         }
     }
 }
