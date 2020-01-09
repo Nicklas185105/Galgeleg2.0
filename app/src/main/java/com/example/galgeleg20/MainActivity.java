@@ -33,12 +33,16 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         game.setOnClickListener(this);
         highscore.setOnClickListener(this);
         help.setOnClickListener(this);
+
+        //((Galgelogik) this.getApplication());
     }
 
     @Override
     public void onClick(View v) {
         if (v == game){
             Intent i = new Intent(this, GameActivity.class);
+            //i.putExtra()
+            //TODO: Tilføj asynctask her i main og send det over til GameActivity
             startActivity(i);
         }
         else if (v == highscore){

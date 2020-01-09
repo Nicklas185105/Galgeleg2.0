@@ -1,5 +1,7 @@
 package com.example.galgeleg20;
 
+import android.app.Application;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,7 +11,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 
-public class Galgelogik {
+public class Galgelogik extends Application {
     /** AHT afprøvning er muligeOrd synlig på pakkeniveau */
     ArrayList<String> muligeOrd = new ArrayList<String>();
     private String ordet;
